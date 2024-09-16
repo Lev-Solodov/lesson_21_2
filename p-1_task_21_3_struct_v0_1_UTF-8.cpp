@@ -28,14 +28,14 @@ struct character {
 };
 
 // функция подсчёта урона игроку
-void take_damage(character* person, int damage) {
+void take_damage(character& person, int damage) {
 	//обращаюсь к полю структуры через person->name
-	std::cout << person->name << " took damage: -" << damage << '\n';
+	std::cout << person.name << " took damage: -" << damage << '\n';
 	//~ person->armor -= person->armor - damage;
-	person->armor -= damage;
-	if (person->armor < 0) {
-		person->health += person->armor;//оставшийся урон распространяется и на сами жизни
-		person->armor = 0;
+	person.armor -= damage;
+	if (person.armor < 0) {
+		person.health += person->armor;//оставшийся урон распространяется и на сами жизни
+		person.armor = 0;
 	}
 }
 
