@@ -44,7 +44,7 @@ void take_damage(character& person, int damage) {
 	if (person.armor < 0) {
 		/*В данном случае, person->name обращается к полю name объекта, на который указывает person.
 		 Это позволяет получить доступ к данным объекта, даже если вы работаете с ним через указатель.*/
-		person.health += person->armor;//оставшийся урон распространяется и на сами жизни		
+		person.health += person.armor;//оставшийся урон распространяется и на сами жизни		
 		person.armor = 0;
 	}
 }
@@ -65,7 +65,7 @@ int main() {
 	//после удара молнии все персонажи получают урон в 30 единиц
 	//используем указатель на элемент, т.е. используем оператор & (end)
 	for (int i = 0; i < persons; ++i) {
-		take_damage(people + i, 30);
+		take_damage(people [i], 30); //изменения способа передачи аргументов функции take_damage. Вместо того чтобы передавать указатель на элемент массива people + i, передавайте сам элемент массива people[i].
 	}
 	//~ std::cout << "Health: " << person.health << " Armor:"<< person.armor << "\n";
 
